@@ -1,11 +1,12 @@
 % Q1
 % (a)(i)
-%magic(X):- wizard(X).
+magic(X):- wizard(X).
 
 % (a)(ii)
-%wizard(yennefer).
+wizard(yennefer).
 
 % (a)(iii)
+% Note: The examiner may not want this.
 magic(magic):- !.
 magic(X):- magic(X).
 
