@@ -1,15 +1,13 @@
 % Q1
 % (a)(i)
-% IDK what this means
+%magic(X):- wizard(X).
+
 % (a)(ii)
-magic(wizards).
+%wizard(yennefer).
 
 % (a)(iii)
-% The prolog interpreter will attempt to pattern 
-% match for X in magic(X). As our rule states
-% magic(magic), it will find X=magic
-% and X=wizards, if we follow from the last question.
-magic(magic).
+magic(magic):- !.
+magic(X):- magic(X).
 
 % (b)
 % UNSURE:
