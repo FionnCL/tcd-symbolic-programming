@@ -1,4 +1,4 @@
-# Symbolic Programming, Trinity College Dublin
+# Symbolic Programming @ Trinity College Dublin
 
 ## Information
 This repository is intended to be a compilation of past assignments and past paper solutions for the module "Symbolic Programming" at Trinity College Dublin.
