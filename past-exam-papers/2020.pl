@@ -23,6 +23,7 @@ pat(happy) :- day(sunny).
 % pat(What).
 
 % (b)
+% INCOMPLETE
 sublist(Sub,List) :- 
     append(_,Suffix,List),
     append(sub,_,Suffix).
