@@ -25,7 +25,7 @@ pat(happy) :- day(sunny).
 % Query5 = pat(What).
 
 % (b)
-% INCOMPLETE <-----------------------------------
+% INCOMPLETE <-----------------------------------///
 subl(Sub,List) :- 
     append(_,Suffix,List),
     append(Sub,_,Suffix).
@@ -48,3 +48,38 @@ nonRepeating(Element, [H|T]):-
 % subset/2, as seen in the question, will return true for subset([],[1]), which means that
 % it will return [] as the subset of [1], it will then pattern match this with the X in findall/3,
 % resulting in the answer being [[]]!
+
+% (e) (i)
+numeral(0).
+numeral(succ(X)) :- numeral(X).
+% When you run "X = succ(X), numeral(X)." you get a runtime error,
+% more accurately it won't stop running, 
+% soooooo idk, that is probably the answer.
+
+% (e) (ii)
+% For this question, it only worked with tail recursion.
+% Always use tail recursion, kids.
+nu(0).
+nu(succ(X)) :- X\=succ(X), nu(X).
+
+% (e) (iii)
+% INCOMPLETE <---------------------------------------///
+nume(succ(0)).
+nume(succ(X)) :- nume(X).
+
+% (f)
+% This answer could easily be done another way, but this answer took me a minute to do,
+% and is the answer I would give in an exam.
+% NOTE: for the last query of str(Na,Nb,Nc,L), the predicate gets stuck using a list of a's:
+% [a,a,a,....infinity]. I do believe the answer is right it just values a's first.
+% Other answer using conditionals could be the answer.
+str(0,0,0,[]).
+str(succ(Na),Nb,Nc, [H|T]):-
+    H=a,
+    str(Na, Nb, Nc, T).
+str(Na,succ(Nb),Nc, [H|T]):-
+    H=b,
+    str(Na, Nb, Nc, T).
+str(Na,Nb,succ(Nc), [H|T]):-
+    H=c,
+    str(Na, Nb, Nc, T).
