@@ -83,3 +83,36 @@ str(Na,succ(Nb),Nc, [H|T]):-
 str(Na,Nb,succ(Nc), [H|T]):-
     H=c,
     str(Na, Nb, Nc, T).
+
+% Q2
+% (a)
+% Probably wrong:
+s(X,Y):-
+    X=[0],
+    t(X,Y).
+
+t(_,[]).
+t(X,Y):-
+    s(X,Z),
+    Z=[1],
+    t(Z,Y).
+
+% (b)
+fib --> fib(0, 1).
+fib(A, B) --> [A, B].
+fib(A, B) --> [A], next(B, A).
+next(B, C) --> {A is C + B}, fib(B, A).
+
+% (c) (i)
+% TODO:
+s(Acc) --> [1], rest(Acc).
+rest(Acc) --> [0], rest(AccOut), {Acc > 0, AccOut is Acc - 1}.
+rest(Acc) --> [1], rest(AccOut), {Acc > 0, AccOut is Acc - 1}.
+
+% (c) (ii)
+% TODO
+
+% Q3
+% (a)
+% I am stopping here because lecture 11 memoisation is mentioned here.
+% I will not be studying lecture 11 or 12.
