@@ -13,5 +13,5 @@ membe(Item, [HL|HT], NewCount):-
     membe(Item, HT, Count),
     NewCount is Count + 1.
 membe(Item, [HL|HT], Count):-
-    Item\=HL,
+    dif(Item,HL),
     membe(Item, HT, Count).
