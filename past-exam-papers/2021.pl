@@ -6,7 +6,6 @@
 % This is a list, similarly to (a)(i), which members are 0, followed by Y.
 
 % (b)
-% Incomplete: Does not work for queries like membe(X, [a,b,a,a,b,c,c], 2).
 membe(_,[],0).
 membe(Item, [HL|HT], NewCount):-
     Item=HL,
