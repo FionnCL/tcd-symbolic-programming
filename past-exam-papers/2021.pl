@@ -31,7 +31,7 @@ sublis3(SubL,L):- append(SubL,_,S), append(_,S,L).
 sub(SubL,L):- 
     append(_,S,L),
     append(SubL,_,S),
-    S\=[], SubL\=[].
+    S\=[], SubL\=[]. % DOES NOT WORK AS INTENDED, GETS RID OF ALL []s
 
 % (d)
 % Honestly, I am not sure.
@@ -70,5 +70,3 @@ s --> [0].
 s --> [1,0].
 s --> [Y], [X], s, {X>0, Y is -X}.
 s --> [Y], [X], s, {X<0, Y is -X+1}.
-
-% Q3
