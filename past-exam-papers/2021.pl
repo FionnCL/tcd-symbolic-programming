@@ -14,3 +14,22 @@ membe(Item, [HL|HT], NewCount):-
 membe(Item, [HL|HT], Count):-
     dif(Item,HL),
     membe(Item, HT, Count).
+
+% (c) (i)
+% This is true.
+sublist(SubL,L):- append(_,S,L), append(SubL,_,S).
+sublis2(SubL,L):- append(S,_,L), append(_,SubL,S).
+% True as the constraints stay the same, just moved around. The result of unification between S and L stays the same.
+
+% (c) (ii)
+% This is true.
+sublis3(SubL,L):- append(SubL,_,S), append(_,S,L).
+% sublis3/2 closely resembles sublist/2, just with the order of inner-predicates swapped.
+% it will still unify as the Prolog interpreter is smart.
+
+% (c) (iii)
+% Incomplete
+sub(SubL,L):- 
+    append(_,S,L), 
+    append(SubL,_,S),
+    dif(L,[]).
