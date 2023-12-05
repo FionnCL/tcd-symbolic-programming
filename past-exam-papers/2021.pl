@@ -28,8 +28,47 @@ sublis3(SubL,L):- append(SubL,_,S), append(_,S,L).
 % it will still unify as the Prolog interpreter is smart.
 
 % (c) (iii)
-% Incomplete
 sub(SubL,L):- 
-    append(_,S,L), 
+    append(_,S,L),
     append(SubL,_,S),
-    dif(L,[]).
+    S\=[], SubL\=[].
+
+% (d)
+% Honestly, I am not sure.
+% My first intinct is to say ____, as the findall/3 must pattern match with L, which must be of length N.
+% Given a length N, findall is going to find all combinations of said list of length N.
+% findall/3 will look for all X such that q(X). This will find all X's that are q(X).
+% q(X) has a finite amount of solutions. Assuming there is an answer to the query, the number of solutions to the 
+% query IS the instantiation of N that answers the query.
+
+% Q2
+% (a) (i)
+int(0).
+int(NewX):- int(X), NewX is X + 1.
+    
+% (a) (ii)
+% I cannot get this to alternate negative-positive-negative-positive ///-------------------------------
+intgr(X):- positive(X).
+intgr(X):- negative(X).
+
+negative(0).
+negative(NewX):- negative(X), NewX is X - 1.
+
+positive(0).
+positive(NewX):- positive(X), NewX is X + 1.
+
+% (b) (i)
+% Yeah I have no clue ///------------------------------------------------------------------------------
+good([0]).
+good([1,0]).
+good([A,B|T]):- good([B|T]), B>0, A is -B.
+good([A,B|T]):- good([B|T]), B<0, A is -B+1.
+
+% (b) (ii)
+% Yeah I have no clue ///------------------------------------------------------------------------------
+s --> [0].
+s --> [1,0].
+s --> [Y], [X], s, {X>0, Y is -X}.
+s --> [Y], [X], s, {X<0, Y is -X+1}.
+
+% Q3
