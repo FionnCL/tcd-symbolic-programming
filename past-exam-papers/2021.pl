@@ -68,3 +68,25 @@ s --> [0].
 s --> [1,0].
 s --> [Y], [X], s, {X>0, Y is -X}.
 s --> [Y], [X], s, {X<0, Y is -X+1}.
+
+
+% Q3
+% % (a)
+% This is very slightly wrong in terms of the abstract query:
+% It will set A=C instead of A=B. 
+diff(X,[],X).
+diff([H|T],L, [H|C]):-
+    not(member(H, L)),
+    diff(T,L,C).
+
+diff([H|T], [LH|LT], C):-
+    member(H, [LH|LT]),
+    diff(T,LT,C).
+    
+% (b)
+% INCOMPLETE ///---------------------------------------------------------------------------------------
+s1([]) --> [].
+s1([H|T]) --> repeat(H, _), s1(T).
+
+repeat(_, 0) --> [].
+repeat(H, NewCnt) --> [H], repeat(H, Cnt), {NewCnt is Cnt + 1}.
