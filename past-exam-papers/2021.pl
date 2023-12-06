@@ -48,14 +48,8 @@ int(NewX):- int(X), NewX is X + 1.
     
 % (a) (ii)
 % I cannot get this to alternate negative-positive-negative-positive ///-------------------------------
-intgr(X):- positive(X).
-intgr(X):- negative(X).
-
-negative(0).
-negative(NewX):- negative(X), NewX is X - 1.
-
-positive(0).
-positive(NewX):- positive(X), NewX is X + 1.
+intgr(0).
+intgr(NewX):- intgr(X), (X > 0, NewX is X + 1; X < 0, NewX is -X + 1).
 
 % (b) (i)
 good([0]).
@@ -87,6 +81,9 @@ diff([H|T], [LH|LT], C):-
 % INCOMPLETE ///---------------------------------------------------------------------------------------
 s1([]) --> [].
 s1([H|T]) --> repeat(H, _), s1(T).
+
+repeat(_, 0) --> [].
+repeat(H, NewCnt) --> [H], repeat(H, Cnt), {NewCnt is Cnt + 1}.
 
 repeat(_, 0) --> [].
 repeat(H, NewCnt) --> [H], repeat(H, Cnt), {NewCnt is Cnt + 1}.
