@@ -58,11 +58,9 @@ positive(0).
 positive(NewX):- positive(X), NewX is X + 1.
 
 % (b) (i)
-% Yeah I have no clue ///------------------------------------------------------------------------------
 good([0]).
 good([1,0]).
-good([A,B|T]):- good([B|T]), B>0, A is -B.
-good([A,B|T]):- good([B|T]), B<0, A is -B+1.
+good([A,B|T]) :- good([B|T]), (B > 0, A is -B ; B < 0, A is -B + 1).
 
 % (b) (ii)
 % Yeah I have no clue ///------------------------------------------------------------------------------
