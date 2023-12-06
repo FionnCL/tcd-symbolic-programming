@@ -1,3 +1,4 @@
+% This is an online exam! That is why the questions are much more challenging.
 % Q1
 % (a) (i)
 % This is a list. Its members are 0, followed by X.
@@ -81,9 +82,6 @@ diff([H|T], [LH|LT], C):-
 % INCOMPLETE ///---------------------------------------------------------------------------------------
 s1([]) --> [].
 s1([H|T]) --> repeat(H, _), s1(T).
-
-repeat(_, 0) --> [].
-repeat(H, NewCnt) --> [H], repeat(H, Cnt), {NewCnt is Cnt + 1}.
 
 repeat(_, 0) --> [].
 repeat(H, NewCnt) --> [H], repeat(H, Cnt), {NewCnt is Cnt + 1}.
