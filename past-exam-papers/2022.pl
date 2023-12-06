@@ -12,7 +12,7 @@ magic(X):- magic(X).
 
 % (b)
 % UNSURE:
-% It is not a list.
+% It is a list.
 
 % (c)
 % UNSURE:
